@@ -58,4 +58,53 @@ function CheckDoor(dir){
 			instance_destroy(doorToUnlock);
 		}
 	}
+	
+	// chip door stuff, special case
+	var doorToUnlock = undefined;
+	switch(dir)
+	{
+		case "Left":
+			if(place_meeting(x-tileSize, y, obj_chipDoor))
+			{
+				var inst = instance_place(x-tileSize, y, obj_chipDoor);
+				if (global.chipsRequired <= obj_player.chips) {
+					doorToUnlock = inst;	
+				}
+			}
+		break;
+		
+		case "Right":
+			if(place_meeting(x+tileSize, y, obj_chipDoor))
+			{
+				var inst = instance_place(x+tileSize, y, obj_chipDoor);
+				if (global.chipsRequired <= obj_player.chips) {
+					doorToUnlock = inst;	
+				}
+			}
+		break;
+		
+		case "Up":
+			if(place_meeting(x, y-tileSize, obj_chipDoor))
+			{
+				var inst = instance_place(x, y-tileSize, obj_chipDoor);
+				if (global.chipsRequired <= obj_player.chips) {
+					doorToUnlock = inst;	
+				}
+			}
+		break;
+		
+		case "Down":
+			if(place_meeting(x, y+tileSize, obj_chipDoor))
+			{
+				var inst = instance_place(x, y+tileSize, obj_chipDoor);
+				if (global.chipsRequired <= obj_player.chips) {
+					doorToUnlock = inst;	
+				}
+			}
+		break;
+	}
+	
+	if doorToUnlock != undefined {
+		instance_destroy(doorToUnlock);
+	}
 }

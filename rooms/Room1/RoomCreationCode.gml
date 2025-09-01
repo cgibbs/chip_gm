@@ -1,0 +1,1 @@
+global.chipsRequired = 2;
