@@ -1,5 +1,7 @@
 {
-  "FolderOrderSettings":[],
+  "FolderOrderSettings":[
+    {"name":"inventory","order":27,"path":"folders/Objects/inventory.yy",},
+  ],
   "ResourceOrderSettings":[
     {"name":"obj_blueDoor","order":8,"path":"objects/obj_blueDoor/obj_blueDoor.yy",},
     {"name":"obj_blueKey","order":9,"path":"objects/obj_blueKey/obj_blueKey.yy",},
@@ -14,6 +16,9 @@
     {"name":"obj_greenDoor","order":10,"path":"objects/obj_greenDoor/obj_greenDoor.yy",},
     {"name":"obj_greenKey","order":11,"path":"objects/obj_greenKey/obj_greenKey.yy",},
     {"name":"obj_guiNumbers","order":16,"path":"objects/obj_guiNumbers/obj_guiNumbers.yy",},
+    {"name":"obj_invGreenKey","order":1,"path":"objects/obj_invGreenKey/obj_invGreenKey.yy",},
+    {"name":"obj_invRedKey","order":2,"path":"objects/obj_invRedKey/obj_invRedKey.yy",},
+    {"name":"obj_invYellowKey","order":3,"path":"objects/obj_invYellowKey/obj_invYellowKey.yy",},
     {"name":"obj_levelNumber1","order":20,"path":"objects/obj_levelNumber1/obj_levelNumber1.yy",},
     {"name":"obj_levelNumber2","order":21,"path":"objects/obj_levelNumber2/obj_levelNumber2.yy",},
     {"name":"obj_levelNumber3","order":22,"path":"objects/obj_levelNumber3/obj_levelNumber3.yy",},
