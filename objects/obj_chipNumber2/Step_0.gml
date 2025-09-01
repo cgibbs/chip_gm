@@ -1,0 +1,1 @@
+image_index = ((global.chipsRequired - obj_player.chips) / 10) % 10

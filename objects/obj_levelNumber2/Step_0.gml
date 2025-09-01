@@ -1,0 +1,1 @@
+image_index = (global.roomCount / 10) % 10

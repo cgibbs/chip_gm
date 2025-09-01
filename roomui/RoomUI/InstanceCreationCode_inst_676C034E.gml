@@ -1,0 +1,1 @@
+global.roomCount = 0;
