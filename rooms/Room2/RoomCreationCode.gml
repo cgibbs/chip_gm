@@ -1,1 +1,1 @@
-global.chipsRequired = 4;
+global.chipsRequired = 2;

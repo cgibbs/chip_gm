@@ -52,6 +52,7 @@
     {"id":{"name":"obj_yellowKey","path":"objects/obj_yellowKey/obj_yellowKey.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
+    {"id":{"name":"Room3","path":"rooms/Room3/Room3.yy",},},
     {"id":{"name":"CheckDoor","path":"scripts/CheckDoor/CheckDoor.yy",},},
     {"id":{"name":"CheckIfEmpty","path":"scripts/CheckIfEmpty/CheckIfEmpty.yy",},},
     {"id":{"name":"sBlueDoor","path":"sprites/sBlueDoor/sBlueDoor.yy",},},
@@ -80,6 +81,7 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
+    {"roomId":{"name":"Room3","path":"rooms/Room3/Room3.yy",},},
   ],
   "templateType":null,
   "TextureGroups":[
