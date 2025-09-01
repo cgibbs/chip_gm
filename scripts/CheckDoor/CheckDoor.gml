@@ -1,9 +1,11 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 global.door_list = [obj_redDoor, obj_blueDoor, obj_yellowDoor, obj_greenDoor]
+// this shouldn't be global but I'm not going to figure out the right way to do it, lmao
+global.doorToUnlock = undefined;
 function CheckDoor(dir){
 	for (var i = 0; i < array_length(global.door_list); i++) {
-		var doorToUnlock = undefined;
+		global.doorToUnlock = undefined;
 		var doorObj = global.door_list[i];
 		switch(dir)
 		{
@@ -12,14 +14,8 @@ function CheckDoor(dir){
 				{
 					var inst = instance_place(x-tileSize, y, doorObj);
 					if (array_contains(obj_player.keys, inst.doorKey)) {
-						doorToUnlock = inst;	
+						global.doorToUnlock = inst;	
 					}
-					//if(inst.doorKey)
-					//{
-					//	show_debug_message("door detected");
-					//	//inst.x -= tileSize;
-					//	//x -= tileSize;
-					//}
 				}
 			break;
 		
@@ -28,7 +24,7 @@ function CheckDoor(dir){
 				{
 					var inst = instance_place(x+tileSize, y, doorObj);
 					if (array_contains(obj_player.keys, inst.doorKey)) {
-						doorToUnlock = inst;	
+						global.doorToUnlock = inst;	
 					}
 				}
 			break;
@@ -38,7 +34,7 @@ function CheckDoor(dir){
 				{
 					var inst = instance_place(x, y-tileSize, doorObj);
 					if (array_contains(obj_player.keys, inst.doorKey)) {
-						doorToUnlock = inst;	
+						global.doorToUnlock = inst;	
 					}
 				}
 			break;
@@ -48,19 +44,26 @@ function CheckDoor(dir){
 				{
 					var inst = instance_place(x, y+tileSize, doorObj);
 					if (array_contains(obj_player.keys, inst.doorKey)) {
-						doorToUnlock = inst;	
+						global.doorToUnlock = inst;	
 					}
 				}
 			break;
 		}
 	
-		if doorToUnlock != undefined {
-			instance_destroy(doorToUnlock);
+		if global.doorToUnlock != undefined {
+			show_debug_message(obj_player.keys);
+			var _f = function(_element, _index) {
+				show_debug_message(_element);
+				return _element == global.doorToUnlock.doorKey;
+			}
+			array_delete(obj_player.keys, array_find_index(obj_player.keys, _f),1)
+			show_debug_message(obj_player.keys);
+			instance_destroy(global.doorToUnlock);
 		}
 	}
 	
 	// chip door stuff, special case
-	var doorToUnlock = undefined;
+	global.doorToUnlock = undefined;
 	switch(dir)
 	{
 		case "Left":
@@ -68,7 +71,7 @@ function CheckDoor(dir){
 			{
 				var inst = instance_place(x-tileSize, y, obj_chipDoor);
 				if (global.chipsRequired <= obj_player.chips) {
-					doorToUnlock = inst;	
+					global.doorToUnlock = inst;	
 				}
 			}
 		break;
@@ -78,7 +81,7 @@ function CheckDoor(dir){
 			{
 				var inst = instance_place(x+tileSize, y, obj_chipDoor);
 				if (global.chipsRequired <= obj_player.chips) {
-					doorToUnlock = inst;	
+					global.doorToUnlock = inst;	
 				}
 			}
 		break;
@@ -88,7 +91,7 @@ function CheckDoor(dir){
 			{
 				var inst = instance_place(x, y-tileSize, obj_chipDoor);
 				if (global.chipsRequired <= obj_player.chips) {
-					doorToUnlock = inst;	
+					global.doorToUnlock = inst;	
 				}
 			}
 		break;
@@ -98,13 +101,13 @@ function CheckDoor(dir){
 			{
 				var inst = instance_place(x, y+tileSize, obj_chipDoor);
 				if (global.chipsRequired <= obj_player.chips) {
-					doorToUnlock = inst;	
+					global.doorToUnlock = inst;	
 				}
 			}
 		break;
 	}
 	
-	if doorToUnlock != undefined {
-		instance_destroy(doorToUnlock);
+	if global.doorToUnlock != undefined {
+		instance_destroy(global.doorToUnlock);
 	}
 }
