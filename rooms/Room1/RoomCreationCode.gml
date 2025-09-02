@@ -1,4 +1,4 @@
-global.chipsRequired = 10;
+global.chipsRequired = 11;
 global.roomCount = 1;
 
 var ik = instance_nearest(0,0,obj_invBlueKey);

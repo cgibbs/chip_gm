@@ -54,7 +54,9 @@ function CheckDoor(dir){
 			var _f = function(_element, _index) {
 				return _element == global.doorToUnlock.doorKey;
 			}
-			array_delete(obj_player.keys, array_find_index(obj_player.keys, _f),1)
+			if (global.doorToUnlock.doorKey != obj_greenKey) {
+				array_delete(obj_player.keys, array_find_index(obj_player.keys, _f),1)
+			}
 			if array_find_index(obj_player.keys, _f) < 0 {
 				var ui_flexpanels = layer_get_flexpanel_node("UILayer_1");
 				switch global.doorToUnlock.doorKey {
@@ -66,10 +68,10 @@ function CheckDoor(dir){
 						var ik = instance_nearest(0,0,obj_invBlueKey);
 						ik.visible = false;
 						break;
-					case obj_greenKey:
-						var ik = instance_nearest(0,0,obj_invGreenKey);
-						ik.visible = false;
-						break;
+					//case obj_greenKey:
+					//	var ik = instance_nearest(0,0,obj_invGreenKey);
+					//	ik.visible = false;
+					//	break;
 					case obj_yellowKey:
 						var ik = instance_nearest(0,0,obj_invYellowKey);
 						ik.visible = false;
