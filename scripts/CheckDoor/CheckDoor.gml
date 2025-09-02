@@ -59,20 +59,20 @@ function CheckDoor(dir){
 				var ui_flexpanels = layer_get_flexpanel_node("UILayer_1");
 				switch global.doorToUnlock.doorKey {
 					case obj_redKey:
-					var redKey_panel = flexpanel_node_get_child(ui_flexpanels, "redKey");
-						flexpanel_node_style_set_display(redKey_panel, flexpanel_display.none);
+						var ik = instance_nearest(0,0,obj_invRedKey);
+						ik.visible = false;
 						break;
 					case obj_blueKey:
-						var blueKey_panel = flexpanel_node_get_child(ui_flexpanels, "blueKey");
-						flexpanel_node_style_set_display(blueKey_panel, flexpanel_display.none);
+						var ik = instance_nearest(0,0,obj_invBlueKey);
+						ik.visible = false;
 						break;
 					case obj_greenKey:
-						var greenKey_panel = flexpanel_node_get_child(ui_flexpanels, "greenKey");
-						flexpanel_node_style_set_display(greenKey_panel, flexpanel_display.none);
+						var ik = instance_nearest(0,0,obj_invGreenKey);
+						ik.visible = false;
 						break;
 					case obj_yellowKey:
-						var yellowKey_panel = flexpanel_node_get_child(ui_flexpanels, "yellowKey");
-						flexpanel_node_style_set_display(yellowKey_panel, flexpanel_display.none);
+						var ik = instance_nearest(0,0,obj_invYellowKey);
+						ik.visible = false;
 						break;
 				}
 			}
