@@ -1,26 +1,28 @@
+
+
 function check_relative_left_wall_exists(facing) {
 	switch (facing) {
 		case "up":
-			return !(instance_position(x-tileSize, y, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
+			return !(instance_position(x-tileSize, y, collision_list) == noone)
 		case "left":
-			return !(instance_position(x, y+tileSize, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
+			return !(instance_position(x, y+tileSize, collision_list) == noone)
 		case "down":
-			return !(instance_position(x+tileSize, y, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
+			return !(instance_position(x+tileSize, y, collision_list) == noone)
 		case "right":
-			return !(instance_position(x, y-tileSize, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
+			return !(instance_position(x, y-tileSize, collision_list) == noone)
 	}
 }
 
 function check_forward_empty(facing) {
 	switch (facing) {
 		case "left":
-			return (instance_position(x-tileSize, y, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
+			return (instance_position(x-tileSize, y, collision_list) == noone)
 		case "down":
-			return (instance_position(x, y+tileSize, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
+			return (instance_position(x, y+tileSize, collision_list) == noone)
 		case "right":
-			return (instance_position(x+tileSize, y, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
+			return (instance_position(x+tileSize, y, collision_list) == noone)
 		case "up":
-			return (instance_position(x, y-tileSize, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
+			return (instance_position(x, y-tileSize, collision_list) == noone)
 	}
 }
 
