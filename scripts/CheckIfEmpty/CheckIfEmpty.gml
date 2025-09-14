@@ -10,14 +10,11 @@ function CheckIfEmpty(dir){
 			}
 			else
 			{
-				if(place_meeting(x-tileSize, y, obj_box) and place_free(x-tileSize*2, y))
+				if(place_meeting(x-tileSize, y, obj_dirtBlock) and place_free(x-tileSize*2, y))
 				{
-					var inst = instance_place(x-tileSize, y, obj_box);
-					if(!inst.snap)
-					{
-						inst.x -= tileSize;
-						x -= tileSize;
-					}
+					var inst = instance_place(x-tileSize, y, obj_dirtBlock);
+					inst.x -= tileSize;
+					x -= tileSize;
 				}
 			}
 		break;
@@ -29,14 +26,11 @@ function CheckIfEmpty(dir){
 			}
 			else
 			{
-				if(place_meeting(x+tileSize, y, obj_box) and place_free(x+tileSize*2, y))
+				if(place_meeting(x+tileSize, y, obj_dirtBlock) and place_free(x+tileSize*2, y))
 				{
-					var inst = instance_place(x+tileSize, y, obj_box);
-					if(!inst.snap)
-					{
-						inst.x += tileSize;
-						x += tileSize;
-					}	
+					var inst = instance_place(x+tileSize, y, obj_dirtBlock);
+					inst.x += tileSize;
+					x += tileSize;
 				}
 			}
 		break;
@@ -48,14 +42,11 @@ function CheckIfEmpty(dir){
 			}
 			else
 			{
-				if(place_meeting(x, y-tileSize, obj_box) and place_free(x, y-tileSize*2))
+				if(place_meeting(x, y-tileSize, obj_dirtBlock) and place_free(x, y-tileSize*2))
 				{
-					var inst = instance_place(x, y-tileSize, obj_box);
-					if(!inst.snap)
-					{
-						inst.y -= tileSize;
-						y -= tileSize;
-					}
+					var inst = instance_place(x, y-tileSize, obj_dirtBlock);
+					inst.y -= tileSize;
+					y -= tileSize;
 				}
 			}
 		break;
@@ -67,14 +58,11 @@ function CheckIfEmpty(dir){
 			}
 			else
 			{
-				if(place_meeting(x, y+tileSize, obj_box) and place_free(x, y+tileSize*2))
+				if(place_meeting(x, y+tileSize, obj_dirtBlock) and place_free(x, y+tileSize*2))
 				{
-					var inst = instance_place(x, y+tileSize, obj_box);
-					if(!inst.snap)
-					{
-						inst.y += tileSize;
-						y += tileSize;
-					}
+					var inst = instance_place(x, y+tileSize, obj_dirtBlock);
+					inst.y += tileSize;
+					y += tileSize;
 				}
 			}
 		break;
