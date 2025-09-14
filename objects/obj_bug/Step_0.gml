@@ -71,6 +71,23 @@ function return_relative_left(facing) {
 	}	
 }
 
+function update_sprite(facing) {
+	switch (facing) {
+		case "down":
+			image_index = 0;
+			break;
+		case "left":
+			image_index = 1;
+			break;
+		case "up":
+			image_index = 2;
+			break;
+		case "right":
+			image_index = 3;
+			break;
+	}
+}
+
 if (global.ticks % 10 = 0) {
 	// do bug stuff once every n ticks
 
@@ -94,4 +111,5 @@ if (global.ticks % 10 = 0) {
 	if (check_forward_empty(self.facing)) {
 		move_forward(self.facing);
 	}
+	update_sprite(self.facing);
 }	
