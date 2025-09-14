@@ -1,18 +1,12 @@
-show_debug_message(self.facing);
-
 function check_relative_left_wall_exists(facing) {
 	switch (facing) {
 		case "up":
-			//return !place_free(x-tileSize, y);
 			return !(instance_position(x-tileSize, y, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
 		case "left":
-			//return !place_free(x, y+tileSize);
 			return !(instance_position(x, y+tileSize, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
 		case "down":
-			//return !place_free(x+tileSize, y);
 			return !(instance_position(x+tileSize, y, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
 		case "right":
-			//return !place_free(x, y-tileSize);
 			return !(instance_position(x, y-tileSize, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
 	}
 }
@@ -20,16 +14,12 @@ function check_relative_left_wall_exists(facing) {
 function check_forward_empty(facing) {
 	switch (facing) {
 		case "left":
-			//return place_free(x-tileSize, y);
 			return (instance_position(x-tileSize, y, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
 		case "down":
-			//return place_free(x, y+tileSize);
 			return (instance_position(x, y+tileSize, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
 		case "right":
-			//return place_free(x+tileSize, y);
 			return (instance_position(x+tileSize, y, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
 		case "up":
-			//return place_free(x, y-tileSize);
 			return (instance_position(x, y-tileSize, [obj_wall, obj_dirtBlock, obj_softDirt]) == noone)
 	}
 }
@@ -79,14 +69,8 @@ function return_relative_left(facing) {
 	}	
 }
 
-if (self.ticks % 10 = 0) {
-	// do bug stuff
-	
-	// move forward if empty
-	if (check_forward_empty(self.facing)) {
-		show_debug_message("moving forward");
-		move_forward(self.facing);
-	}
+if (global.ticks % 10 = 0) {
+	// do bug stuff once every n ticks
 
 	// choose next move direction
 	if (check_relative_left_wall_exists(self.facing)) {
@@ -103,6 +87,9 @@ if (self.ticks % 10 = 0) {
 		// no left wall, turn left
 		self.facing = return_relative_left(self.facing);
 	}
-}
-
-self.ticks++;	
+	
+	// move forward if empty
+	if (check_forward_empty(self.facing)) {
+		move_forward(self.facing);
+	}
+}	

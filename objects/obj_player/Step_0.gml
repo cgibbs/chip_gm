@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 var left, right, up, down;
+global.ticks++; // increment on player object ONLY
 
 left = keyboard_check_pressed(vk_left);
 right = keyboard_check_pressed(vk_right);
