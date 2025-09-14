@@ -41,3 +41,35 @@ if(restart)
 {
 	room_restart();	
 }
+
+if(global.ticks % 5 == 0) {
+	if (moving) {
+		switch (facing) {
+			// can change image index here
+			case "up":
+				y -= tileSize;
+				image_index = 2;
+				break;
+			case "down":
+				y += tileSize;
+				image_index = 0;
+				break;
+			case "left":
+				x -= tileSize;
+				image_index = 1;
+				break;
+			case "right":
+				x += tileSize;
+				image_index = 3;
+				break;
+			default:
+				break;
+		}
+		moving = false;
+		facing = "";
+	}
+}
+
+if(global.ticks%10 == 0) {
+	image_index = 0;	
+}

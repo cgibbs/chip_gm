@@ -6,7 +6,9 @@ function CheckIfEmpty(dir){
 		case "Left":
 			if(place_free(x-tileSize, y))
 			{
-				x -= tileSize;
+				//x -= tileSize;
+				facing = "left";
+				moving = true;
 			}
 			else
 			{
@@ -22,7 +24,9 @@ function CheckIfEmpty(dir){
 		case "Right":
 			if(place_free(x+tileSize, y))
 			{
-				x += tileSize;
+				//x += tileSize;
+				facing = "right";
+				moving = true;
 			}
 			else
 			{
@@ -38,7 +42,9 @@ function CheckIfEmpty(dir){
 		case "Up":
 			if(place_free(x, y-tileSize))
 			{
-				y -= tileSize;
+				//y -= tileSize;
+				facing = "up";
+				moving = true;
 			}
 			else
 			{
@@ -54,7 +60,9 @@ function CheckIfEmpty(dir){
 		case "Down":
 			if(place_free(x, y+tileSize))
 			{
-				y += tileSize;
+				//y += tileSize;
+				facing = "down";
+				moving = true;
 			}
 			else
 			{
