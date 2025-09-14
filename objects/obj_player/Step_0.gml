@@ -41,35 +41,47 @@ if(restart)
 {
 	room_restart();	
 }
-
-if(global.ticks % 5 == 0) {
+show_debug_message(facing);
+show_debug_message(image_index);
+if(global.ticks % 10 == 0) {
 	if (moving) {
 		switch (facing) {
 			// can change image index here
 			case "up":
 				y -= tileSize;
-				image_index = 2;
 				break;
 			case "down":
 				y += tileSize;
-				image_index = 0;
 				break;
 			case "left":
 				x -= tileSize;
-				image_index = 1;
 				break;
 			case "right":
 				x += tileSize;
-				image_index = 3;
 				break;
 			default:
 				break;
 		}
 		moving = false;
-		facing = "";
+		ghosting_tick = global.ticks + 20;
 	}
 }
 
-if(global.ticks%10 == 0) {
-	image_index = 0;	
+if(global.ticks == ghosting_tick) {
+	facing = "down";
+}
+
+switch(facing) {
+	case "up":
+		image_index = 2;
+		break;
+	case "down":
+		image_index = 0;
+		break;
+	case "left":
+		image_index = 1;
+		break;
+	case "right":
+		image_index = 3;
+		break;
 }
