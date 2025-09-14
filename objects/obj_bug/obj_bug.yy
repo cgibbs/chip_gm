@@ -1,11 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_chipNumber2",
+  "%Name":"obj_bug",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_chipNumber2",
+  "name":"obj_bug",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -31,10 +32,10 @@
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
+  "solid":true,
   "spriteId":{
-    "name":"sGuiNumbers",
-    "path":"sprites/sGuiNumbers/sGuiNumbers.yy",
+    "name":"Sprite26",
+    "path":"sprites/Sprite26/Sprite26.yy",
   },
   "spriteMaskId":null,
   "visible":true,
