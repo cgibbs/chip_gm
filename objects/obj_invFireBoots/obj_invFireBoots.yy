@@ -6,8 +6,8 @@
   "name":"obj_invFireBoots",
   "overriddenProperties":[],
   "parent":{
-    "name":"inventory",
-    "path":"folders/Objects/inventory.yy",
+    "name":"ui",
+    "path":"folders/Objects/ui.yy",
   },
   "parentObjectId":null,
   "persistent":false,

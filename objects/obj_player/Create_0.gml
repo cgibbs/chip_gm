@@ -9,3 +9,5 @@ image_speed = 0;
 // after which point the facing is returned to default 
 // down position
 ghosting_tick = 0;
+
+ice_list = [obj_ice, obj_iceCornerBottomLeft, obj_iceCornerBottomRight, obj_iceCornerTopLeft, obj_iceCornerTopRight]

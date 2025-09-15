@@ -9,28 +9,28 @@ up = keyboard_check_pressed(vk_up);
 down = keyboard_check_pressed(vk_down);
 restart = keyboard_check_pressed(ord("R"));
 
-if(left)
+if(left and !move_lock)
 {
 	image_index = 3;
 	CheckIfEmpty("Left");
 	CheckDoor("Left");
 }
 
-if(right)
+if(right and !move_lock)
 {
 	image_index = 2;
 	CheckIfEmpty("Right");
 	CheckDoor("Right");
 }
 
-if(up)
+if(up and !move_lock)
 {
 	image_index = 0;
 	CheckIfEmpty("Up");
 	CheckDoor("Up");
 }
 
-if(down)
+if(down and !move_lock)
 {
 	image_index = 1;
 	CheckIfEmpty("Down");
@@ -46,16 +46,16 @@ if(global.ticks % 10 == 0) {
 	if (moving) {
 		switch (facing) {
 			// can change image index here
-			case "up":
+			case "Up":
 				y -= tileSize;
 				break;
-			case "down":
+			case "Down":
 				y += tileSize;
 				break;
-			case "left":
+			case "Left":
 				x -= tileSize;
 				break;
-			case "right":
+			case "Right":
 				x += tileSize;
 				break;
 			default:
@@ -66,21 +66,48 @@ if(global.ticks % 10 == 0) {
 	}
 }
 
-if(global.ticks == ghosting_tick) {
-	facing = "down";
+if(global.ticks == ghosting_tick and !move_lock) {
+	facing = "Down";
+}
+
+// sliding on ice
+if(move_lock) {
+	if (!place_meeting(x, y, ice_list)) {
+		move_lock = false;
+		return;
+	}
+	
+	// only bounce when not on an ice corner
+	if(!CheckIfEmpty(facing) and place_meeting(x, y, obj_ice)) {
+		// not empty, could not move, bounce back
+		switch (facing) {
+			case "Up":
+				facing = "Down";
+				break;
+			case "Down":
+				facing = "Up"
+				break;
+			case "Left":
+				facing = "Right";
+				break;
+			case "Right":
+				facing = "Left";
+				break;
+		}
+	}
 }
 
 switch(facing) {
-	case "up":
+	case "Up":
 		image_index = 2;
 		break;
-	case "down":
+	case "Down":
 		image_index = 0;
 		break;
-	case "left":
+	case "Left":
 		image_index = 1;
 		break;
-	case "right":
+	case "Right":
 		image_index = 3;
 		break;
 }

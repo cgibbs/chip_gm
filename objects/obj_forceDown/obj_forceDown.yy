@@ -8,8 +8,8 @@
   "name":"obj_forceDown",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"floorHazards",
+    "path":"folders/Objects/floorHazards.yy",
   },
   "parentObjectId":null,
   "persistent":false,

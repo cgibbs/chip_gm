@@ -1,14 +1,16 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function CheckIfEmpty(dir){
+	var successful = false;
 	switch(dir)
 	{
 		case "Left":
 			if(place_free(x-tileSize, y))
 			{
 				//x -= tileSize;
-				facing = "left";
+				facing = "Left";
 				moving = true;
+				successful = true;
 			}
 			else
 			{
@@ -17,6 +19,7 @@ function CheckIfEmpty(dir){
 					var inst = instance_place(x-tileSize, y, obj_dirtBlock);
 					inst.x -= tileSize;
 					x -= tileSize;
+					successful = true;
 				}
 			}
 		break;
@@ -25,8 +28,9 @@ function CheckIfEmpty(dir){
 			if(place_free(x+tileSize, y))
 			{
 				//x += tileSize;
-				facing = "right";
+				facing = "Right";
 				moving = true;
+				successful = true;
 			}
 			else
 			{
@@ -35,6 +39,7 @@ function CheckIfEmpty(dir){
 					var inst = instance_place(x+tileSize, y, obj_dirtBlock);
 					inst.x += tileSize;
 					x += tileSize;
+					successful = true;
 				}
 			}
 		break;
@@ -43,8 +48,9 @@ function CheckIfEmpty(dir){
 			if(place_free(x, y-tileSize))
 			{
 				//y -= tileSize;
-				facing = "up";
+				facing = "Up";
 				moving = true;
+				successful = true;
 			}
 			else
 			{
@@ -53,6 +59,7 @@ function CheckIfEmpty(dir){
 					var inst = instance_place(x, y-tileSize, obj_dirtBlock);
 					inst.y -= tileSize;
 					y -= tileSize;
+					successful = true;
 				}
 			}
 		break;
@@ -61,8 +68,9 @@ function CheckIfEmpty(dir){
 			if(place_free(x, y+tileSize))
 			{
 				//y += tileSize;
-				facing = "down";
+				facing = "Down";
 				moving = true;
+				successful = true;
 			}
 			else
 			{
@@ -71,8 +79,10 @@ function CheckIfEmpty(dir){
 					var inst = instance_place(x, y+tileSize, obj_dirtBlock);
 					inst.y += tileSize;
 					y += tileSize;
+					successful = true;
 				}
 			}
 		break;
 	}
+	return successful;
 }

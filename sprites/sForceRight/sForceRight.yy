@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"floorHazards",
+    "path":"folders/Sprites/floorHazards.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
