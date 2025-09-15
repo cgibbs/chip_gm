@@ -1,2 +1,3 @@
-// if inventory doesn't contain flippers
-room_restart()
+if (!array_contains(obj_player.keys, obj_flipper)) {
+	room_restart()
+}

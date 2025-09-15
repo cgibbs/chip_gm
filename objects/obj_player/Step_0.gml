@@ -41,8 +41,7 @@ if(restart)
 {
 	room_restart();	
 }
-show_debug_message(facing);
-show_debug_message(image_index);
+
 if(global.ticks % 10 == 0) {
 	if (moving) {
 		switch (facing) {
