@@ -1,0 +1,2 @@
+// items that can toggle a button
+moveable_list = [obj_player, obj_bug, obj_dirtBlock, obj_ball, obj_tank, obj_fireball];

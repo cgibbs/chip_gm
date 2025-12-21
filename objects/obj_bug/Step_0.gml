@@ -27,6 +27,7 @@ function check_forward_empty(facing) {
 }
 
 function move_forward(facing) {
+	if (move_lock) return;
 	switch (facing) {
 		case "left":
 				x -= tileSize;

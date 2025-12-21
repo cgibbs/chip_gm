@@ -24,7 +24,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"doorKey","filters":[
+    {"$GMObjectProperty":"v2","%Name":"doorKey","filters":[
         "GMObject",
       ],"listItems":[],"multiselect":false,"name":"doorKey","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"obj_blueKey","path":"objects/obj_blueKey/obj_blueKey.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"obj_blueKey","varType":5,},
   ],
