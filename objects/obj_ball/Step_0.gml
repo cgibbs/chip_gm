@@ -1,28 +1,28 @@
 function check_forward_empty(facing) {
 	switch (facing) {
-		case "Left":
+		case "left":
 			return (instance_position(x-tileSize, y, collision_list) == noone)
-		case "Down":
+		case "down":
 			return (instance_position(x, y+tileSize, collision_list) == noone)
-		case "Right":
+		case "right":
 			return (instance_position(x+tileSize, y, collision_list) == noone)
-		case "Up":
+		case "up":
 			return (instance_position(x, y-tileSize, collision_list) == noone)
 	}
 }
 
 function move_forward(facing) {
 	switch (facing) {
-		case "Left":
+		case "left":
 				x -= tileSize;
 			break;
-		case "Down":
+		case "down":
 				y += tileSize;
 			break;
-		case "Right":
+		case "right":
 				x += tileSize;
 			break;
-		case "Up":
+		case "up":
 				y-= tileSize;
 			break;
 	}
@@ -45,7 +45,6 @@ function return_backward(facing) {
 
 if (global.ticks % 10 == 0) {
 	if (check_forward_empty(facing)) {
-		update_sprite(facing);
 		move_forward(facing);
 	} else {
 		self.facing = return_backward(self.facing);
