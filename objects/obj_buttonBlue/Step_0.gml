@@ -1,3 +1,23 @@
-if(stepped and !place_meeting(x, y, obj_player)) {
+if(stepped and (instance_position(x, y,moveable_list) == noone)) {
 	stepped = false;	
+}
+
+if (!stepped and !(instance_position(x, y,moveable_list) == noone)) {
+	for (var i = 0; i < instance_number(obj_tank); ++i;)
+	{
+	    var tankInst = instance_find(obj_tank,i);
+		if (tankInst.facing == "Up") {
+			tankInst.facing = "Down";
+		} else if (tankInst.facing == "Down") {
+			tankInst.facing = "Up";
+		} else if (tankInst.facing == "Left") {
+			tankInst.facing = "Right";
+		} else if (tankInst.facing == "Right") {
+			tankInst.facing = "Left";	
+		}
+		tankInst.stopped = false;
+	}
+	
+	
+	stepped = true;
 }

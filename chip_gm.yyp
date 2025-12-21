@@ -170,8 +170,8 @@
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"RoomInit","path":"rooms/RoomInit/RoomInit.yy",},},
-    {"roomId":{"name":"Lesson_5","path":"rooms/Lesson_5/Lesson_5.yy",},},
     {"roomId":{"name":"Lesson_4","path":"rooms/Lesson_4/Lesson_4.yy",},},
+    {"roomId":{"name":"Lesson_5","path":"rooms/Lesson_5/Lesson_5.yy",},},
     {"roomId":{"name":"Lesson_1","path":"rooms/Lesson_1/Lesson_1.yy",},},
     {"roomId":{"name":"Lesson_2","path":"rooms/Lesson_2/Lesson_2.yy",},},
     {"roomId":{"name":"Lesson_3","path":"rooms/Lesson_3/Lesson_3.yy",},},
