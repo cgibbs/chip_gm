@@ -3,29 +3,27 @@ if(stepped and (instance_position(x, y,moveable_list) == noone)) {
 }
 
 if (!stepped and !(instance_position(x, y,moveable_list) == noone)) {
-	for (var i = 0; i < instance_number(obj_toggleWallOn); ++i;)
+	var toggledOnCount = instance_number(obj_toggleWallOn);
+	var testToggledOffCount = instance_number(obj_toggleWallOff);
+	var testToggledCount = instance_number(obj_toggleWall);
+	
+	with(obj_toggleWallOn) 
 	{
-	    var toggleWallOnInst = instance_find(obj_toggleWallOn,i);
-		//if (instance_exists(toggleWallOnInst)) toggleWallOnInst.instance_change(obj_toggleWallTemp, true);
-		instance_create_layer(toggleWallOnInst.x, toggleWallOnInst.y, "Instances", obj_toggleWallTemp);
-		instance_destroy(toggleWallOnInst);
+		instance_change(obj_toggleWallTemp, false);
 	}
 	
-	for (var i = 0; i < instance_number(obj_toggleWallOff); ++i;)
+	with(obj_toggleWallOff)
 	{
-	    var toggleWallOffInst = instance_find(obj_toggleWallOff,i);
-		//if (instance_exists(toggleWallOffInst)) toggleWallOffInst.instance_change(obj_toggleWallOn, true);
-		instance_create_layer(toggleWallOffInst.x, toggleWallOffInst.y, "Instances", obj_toggleWallOn);
-		instance_destroy(toggleWallOffInst);
+		instance_change(obj_toggleWallOn, false);	
 	}
 	
-	for (var i = 0; i < instance_number(obj_toggleWallTemp); ++i;)
+	with(obj_toggleWallTemp)
 	{
-	    var toggleWallOnInst = instance_find(obj_toggleWallTemp,i);
-		//if (instance_exists(toggleWallOnInst)) toggleWallOnInst.instance_change(obj_toggleWallOff, true);
-		instance_create_layer(toggleWallOnInst.x, toggleWallOnInst.y, "Instances", obj_toggleWallOff);
-		instance_destroy(toggleWallOnInst);
+		instance_change(obj_toggleWallOff, false);	
 	}
 	
+	var toggledOnCount2 = instance_number(obj_toggleWallOn);
+	var testToggledOffCount2 = instance_number(obj_toggleWallOff);
+	var toggledTempCount2 = instance_number(obj_toggleWallTemp);
 	stepped = true;
 }
