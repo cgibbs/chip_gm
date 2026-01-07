@@ -114,26 +114,39 @@ function return_backward(facing) {
 
 function update_sprite(facing) {
 	switch (facing) {
-		case "Down":
+		case "down":
 			image_index = 0;
 			break;
-		case "Left":
+		case "left":
 			image_index = 1;
 			break;
-		case "Up":
+		case "up":
 			image_index = 2;
 			break;
-		case "Right":
+		case "right":
 			image_index = 3;
 			break;
 	}
 }
 
 if (global.ticks % 10 == 0) {
-	if (!stopped and check_forward_empty(facing)) {
-		update_sprite(facing);
-		move_forward(facing);
+	if (!check_forward_empty(self.facing)) {
+		 if (!check_relative_left_wall_exists(self.facing)) {
+			self.facing = return_relative_left(self.facing);
+			move_forward(self.facing);
+		}
+		 else if (!check_relative_right_wall_exists(self.facing)) {
+			self.facing = return_relative_right(self.facing);
+			move_forward(self.facing);
+		} else if (!check_backward_empty(self.facing)) {
+			self.facing = return_backward(self.facing);
+			move_forward(self.facing);
+		} else {
+			// do nothing, stuck	
+		}
+		
 	} else {
-		stopped = true;	
+		move_forward(self.facing);	
 	}
+	update_sprite(facing);
 }
