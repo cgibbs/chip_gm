@@ -1,1 +1,1 @@
-collision_list = [obj_wall, obj_dirtBlock, obj_softDirt, obj_toggleWallOn];
+collision_list = [obj_wall, obj_dirtBlock, obj_softDirt, obj_toggleWallOn, obj_invisWall];
